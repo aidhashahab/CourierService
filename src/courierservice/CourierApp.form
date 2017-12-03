@@ -612,6 +612,9 @@
         <Component class="javax.swing.JTextField" name="jTextField10">
         </Component>
         <Component class="javax.swing.JTextField" name="beratBarangTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="beratBarangTextFieldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField12">
         </Component>
@@ -663,7 +666,7 @@
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel25" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="beratPaketLabel" min="-2" pref="183" max="-2" attributes="0"/>
                               <Component id="jLabel27" min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -678,7 +681,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="beratPaketLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -705,7 +708,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel23">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel25">
+        <Component class="javax.swing.JLabel" name="beratPaketLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="-"/>
           </Properties>

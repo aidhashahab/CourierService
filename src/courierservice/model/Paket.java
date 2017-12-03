@@ -20,6 +20,7 @@ public class Paket {
     public Paket() {
     }
 
+
     public Paket(String noPaket, int beratBarang, String jenisBarang, Tarif kotaTujuan, double biayaPerkilo) {
         this.noPaket = noPaket;
         this.beratBarang = beratBarang;

@@ -14,11 +14,11 @@ import courierservice.model.Tarif;
  */
 public class CourierApp extends javax.swing.JFrame {
 
-   DaoTarif tarifDao;
- 
+    DaoTarif tarifDao;
+
     public CourierApp() {
         tarifDao = new DaoTarif();
- 
+
         initComponents();
 
     }
@@ -74,7 +74,7 @@ public class CourierApp extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        beratPaketLabel = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -284,6 +284,12 @@ public class CourierApp extends javax.swing.JFrame {
 
         jLabel31.setText("No. Pengiriman  :");
 
+        beratBarangTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beratBarangTextFieldActionPerformed(evt);
+            }
+        });
+
         kotaTujuanTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kotaTujuanTextFieldActionPerformed(evt);
@@ -395,7 +401,7 @@ public class CourierApp extends javax.swing.JFrame {
 
         jLabel22.setText("Berat Paket               :");
 
-        jLabel25.setText("-");
+        beratPaketLabel.setText("-");
 
         jLabel26.setText("Biaya Asuransi          :");
 
@@ -421,7 +427,7 @@ public class CourierApp extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(beratPaketLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -431,7 +437,7 @@ public class CourierApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jLabel25))
+                    .addComponent(beratPaketLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
@@ -570,18 +576,13 @@ public class CourierApp extends javax.swing.JFrame {
     }//GEN-LAST:event_provinsiTextFieldActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-   
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-       
-//        Object submit = (Object)jenisLayananComboBox.getSelectedItem();
-//        DaoTarif df = new DaoTarif();
-//        
-        
-        // TODO add your handling code here:
+        beratPaketLabel.setText(beratBarangTextField.toString());
+//      Object submit = (Object)jenisLayananComboBox.getSelectedItem();
     }//GEN-LAST:event_submitButtonActionPerformed
     private void kotaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaComboBoxActionPerformed
         Object kotaKota = (Object) kotaComboBox.getSelectedItem();
@@ -600,6 +601,11 @@ public class CourierApp extends javax.swing.JFrame {
     private void kotaTujuanTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaTujuanTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_kotaTujuanTextFieldActionPerformed
+
+    private void beratBarangTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beratBarangTextFieldActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_beratBarangTextFieldActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -635,6 +641,7 @@ public class CourierApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField beratBarangTextField;
+    private javax.swing.JLabel beratPaketLabel;
     private javax.swing.JTextField hasilTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -654,7 +661,6 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
