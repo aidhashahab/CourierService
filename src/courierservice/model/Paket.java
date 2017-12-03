@@ -28,22 +28,76 @@ public class Paket {
         this.biayaPerkilo = biayaPerkilo;
     }
 
-    public double hitungCoba(int index) {
-        double a = 0.0;
+    public double hitungBiayaReguler(int index) {
+        double reg = 0.0;
         DaoTarif df = new DaoTarif();
         Tarif ta = new Tarif();
-
-        return a;
+        ta = df.tarifByTipe().get(index);
+        reg = ta.getReguler() * getBeratBarang();
+        
+        return reg;
     }
 
-    public double hitungBiayaPaketTanpaAsuransi() {
-        double biaya = this.beratBarang * this.biayaPerkilo;
-        return biaya;
+    public double hitungBiayaPakeRegulertWithAsuransi() {
+        double biaya = hitungBiayaReguler(beratBarang) * 0.003;
+        double biayaWithAsuransi = hitungBiayaReguler(beratBarang) + biaya;
+        return biayaWithAsuransi;
     }
 
-    public double hitungBiayaPaketWithAsuransi() {
-        double biaya = hitungBiayaPaketTanpaAsuransi() * 0.003;
-        double biayaWithAsuransi = hitungBiayaPaketTanpaAsuransi() + biaya;
+    public double hitungBiayaKilat(int index) {
+        double kil = 0.0;
+        DaoTarif df = new DaoTarif();
+        Tarif ta = new Tarif();
+        ta = df.tarifByTipe().get(index);
+        kil = ta.getKilat() * getBeratBarang();
+        return kil;
+    }
+
+    public double hitungBiayaPakeKilatWithAsuransi() {
+        double biaya = hitungBiayaKilat(beratBarang) * 0.003;
+        double biayaWithAsuransi = hitungBiayaKilat(beratBarang) + biaya;
+        return biayaWithAsuransi;
+    }
+
+    public double hitungBiayaSDS(int index) {
+        double sds = 0.0;
+        DaoTarif df = new DaoTarif();
+        Tarif ta = df.tarifByTipe().get(index);
+        sds = ta.getSds() * getBeratBarang();
+        return sds;
+    }
+
+    public double hitungBiayaPaketSdstWithAsuransi() {
+        double biaya = hitungBiayaSDS(beratBarang) * 0.003;
+        double biayaWithAsuransi = hitungBiayaSDS(beratBarang) + biaya;
+        return biayaWithAsuransi;
+    }
+
+    public double hitungBiayaONS(int index) {
+        double ons = 0.0;
+        DaoTarif df = new DaoTarif();
+        Tarif ta = df.tarifByTipe().get(index);
+        ons = ta.getOns() * getBeratBarang();
+        return ons;
+    }
+
+    public double hitungBiayaPaketONStWithAsuransi() {
+        double biaya = hitungBiayaONS(beratBarang) * 0.003;
+        double biayaWithAsuransi = hitungBiayaONS(beratBarang) + biaya;
+        return biayaWithAsuransi;
+    }
+
+    public double hitungBiayaHDS(int index) {
+        double hds = 0.0;
+        DaoTarif df = new DaoTarif();
+        Tarif ta = df.tarifByTipe().get(index);
+        hds = ta.getHds() * getBeratBarang();
+        return hds;
+    }
+
+    public double hitungBiayaPaketHDStWithAsuransi() {
+        double biaya = hitungBiayaHDS(beratBarang) * 0.003;
+        double biayaWithAsuransi = hitungBiayaHDS(beratBarang) + biaya;
         return biayaWithAsuransi;
     }
 

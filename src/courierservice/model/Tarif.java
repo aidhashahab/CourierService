@@ -10,7 +10,8 @@ package courierservice.model;
  * @author user
  */
 public class Tarif {
-
+    
+    private String jenis;
     private double reguler;
     private double kilat;
     private double sds;
@@ -21,7 +22,8 @@ public class Tarif {
     public Tarif() {
     }
 
-    public Tarif(double reguler, double kilat, double sds, double ons, double hds, String kotaTujuan) {
+    public Tarif(String jenis, double reguler, double kilat, double sds, double ons, double hds, String kotaTujuan) {
+        this.jenis = jenis;
         this.reguler = reguler;
         this.kilat = kilat;
         this.sds = sds;
@@ -30,6 +32,10 @@ public class Tarif {
         this.kotaTujuan = kotaTujuan;
     }
 
+    
+
+    
+    
     @Override
     public String toString() {
         return getKotaTujuan(); //To change body of generated methods, choose Tools | Templates.
@@ -101,6 +107,20 @@ public class Tarif {
      */
     public void setKotaTujuan(String kotaTujuan) {
         this.kotaTujuan = kotaTujuan;
+    }
+
+    /**
+     * @return the jenis
+     */
+    public String getJenis() {
+        return jenis;
+    }
+
+    /**
+     * @param jenis the jenis to set
+     */
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
     }
     
 
