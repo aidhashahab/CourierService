@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package courierservice.model;
+package Dao;
 
+import courierservice.model.Tarif;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -72,5 +73,8 @@ public class DaoTarif {
         
         return tipeReguler;
     }
+    
+    
+    
     
 }

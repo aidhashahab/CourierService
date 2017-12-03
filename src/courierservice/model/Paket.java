@@ -5,6 +5,8 @@
  */
 package courierservice.model;
 
+import Dao.DaoTarif;
+
 /**
  *
  * @author user
