@@ -5,7 +5,8 @@
  */
 package courierservice;
 
-import courierservice.model.DaoTarif;
+import Dao.DaoTarif;
+import courierservice.model.Paket;
 import courierservice.model.Tarif;
 
 /**
@@ -58,7 +59,7 @@ public class CourierApp extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField6 = new javax.swing.JTextField();
+        hargaBarangTextField = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
@@ -258,12 +259,22 @@ public class CourierApp extends javax.swing.JFrame {
         jLabel19.setText("Pilih Asurasnsi          : ");
 
         jRadioButton1.setText("YA");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jRadioButton2.setText("TIDAK");
-
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        hargaBarangTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hargaBarangTextFieldActionPerformed(evt);
             }
         });
 
@@ -338,7 +349,7 @@ public class CourierApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField6)
+                    .addComponent(hargaBarangTextField)
                     .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(103, 103, 103))
         );
@@ -362,7 +373,7 @@ public class CourierApp extends javax.swing.JFrame {
                             .addComponent(jRadioButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField6)
+                            .addComponent(hargaBarangTextField)
                             .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,8 +592,15 @@ public class CourierApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        beratPaketLabel.setText(beratBarangTextField.toString());
-//      Object submit = (Object)jenisLayananComboBox.getSelectedItem();
+  //      beratPaketLabel.setText(beratBarangTextField.toString());
+//    Object submit = (Object)jenisLayananComboBox.getSelectedItem();
+String berat = (String) beratBarangTextField.getText();
+String hargaBarang = (String) hargaBarangTextField.getText();
+
+
+
+
+
     }//GEN-LAST:event_submitButtonActionPerformed
     private void kotaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaComboBoxActionPerformed
         Object kotaKota = (Object) kotaComboBox.getSelectedItem();
@@ -594,9 +612,9 @@ public class CourierApp extends javax.swing.JFrame {
         hasilTextField.setText(jenisLayanan.toString());
     }//GEN-LAST:event_jenisLayananComboBoxActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void hargaBarangTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaBarangTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_hargaBarangTextFieldActionPerformed
 
     private void kotaTujuanTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaTujuanTextFieldActionPerformed
         // TODO add your handling code here:
@@ -606,6 +624,18 @@ public class CourierApp extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_beratBarangTextFieldActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+
+hargaBarangTextField.setEnabled(true);
+String hrgBrg = (String) hargaBarangTextField.getText();
+double hasil = 
+// TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -642,6 +672,7 @@ public class CourierApp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField beratBarangTextField;
     private javax.swing.JLabel beratPaketLabel;
+    private javax.swing.JTextField hargaBarangTextField;
     private javax.swing.JTextField hasilTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -694,7 +725,6 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
