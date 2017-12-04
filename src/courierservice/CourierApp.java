@@ -95,8 +95,8 @@ public class CourierApp extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         hasilTextField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -540,19 +540,14 @@ public class CourierApp extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Catak");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
             }
         });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dao/logistic.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -562,20 +557,21 @@ public class CourierApp extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(submitButton))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(submitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(submitButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(submitButton)))
                 .addGap(0, 42, Short.MAX_VALUE))
         );
 
@@ -641,15 +637,11 @@ public class CourierApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1408, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void provinsiTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provinsiTextFieldActionPerformed
         // TODO add your handling code here:
@@ -660,30 +652,6 @@ public class CourierApp extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-       
-        try {
-            
-        String berat = (String) beratBarangTextField.getText();
-        String hargaPerKilo = (String) hargaPerKiloTextField.getText();
-        String hargaBarang = (String) hargaBarangTextField.getText();
-
-        double val = tarifDao.resultBiaya(Integer.parseInt(berat), Double.parseDouble(hargaPerKilo));
-        hargaPaketLabel.setText(String.valueOf(val));
-        System.out.println(val);
-        
-        double val2 = tarifDao.resultBiayaWithAsuransi(Double.parseDouble(hargaBarang));
-        System.out.println(val2);
-        biayaAsuransiLabel.setText(String.valueOf(val2));
-        
-        double hasil = tarifDao.hasilAkhirWithAsuransi(val, val2);
-        hasilTextField.setText(String.valueOf(hasil));
-            
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Masukkan Data dengan Benar!!!");
-        }
-    }//GEN-LAST:event_submitButtonActionPerformed
     private void kotaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kotaComboBoxActionPerformed
         Object kotaKota = (Object) kotaComboBox.getSelectedItem();
         kotaTujuanTextField.setText(kotaKota.toString());
@@ -730,6 +698,30 @@ public class CourierApp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tinggiTextFieldActionPerformed
 
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+
+        try {
+
+            String berat = (String) beratBarangTextField.getText();
+            String hargaPerKilo = (String) hargaPerKiloTextField.getText();
+            String hargaBarang = (String) hargaBarangTextField.getText();
+
+            double val = tarifDao.resultBiaya(Integer.parseInt(berat), Double.parseDouble(hargaPerKilo));
+            hargaPaketLabel.setText(String.valueOf(val));
+            System.out.println(val);
+
+            double val2 = tarifDao.resultBiayaWithAsuransi(Double.parseDouble(hargaBarang));
+            System.out.println(val2);
+            biayaAsuransiLabel.setText(String.valueOf(val2));
+
+            double hasil = tarifDao.hasilAkhirWithAsuransi(val, val2);
+            hasilTextField.setText(String.valueOf(hasil));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Masukkan Data dengan Benar!!!");
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -770,7 +762,6 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JLabel hargaPaketLabel;
     private javax.swing.JTextField hargaPerKiloTextField;
     private javax.swing.JTextField hasilTextField;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -802,6 +793,7 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
